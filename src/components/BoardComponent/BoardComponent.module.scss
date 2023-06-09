@@ -1,0 +1,14 @@
+.board {
+  box-sizing: content-box;
+  width: calc(100px * 4);
+  height: calc(100px * 4);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  border-radius: 10px;
+  border: 10px solid var(--palette-board-border);
+  background-color: var(--palette-board-background);
+  margin-bottom: 15px;
+}

@@ -2,15 +2,16 @@ import { Board } from './Board';
 export class Cell {
   readonly x: number;
   readonly y: number;
-  readonly color: string;
 
+  value: number;
   board: Board;
   id: number;
 
-  constructor(board: Board, x: number, y: number, color: string) {
+  constructor(board: Board, x: number, y: number, value: number) {
     this.x = x;
     this.y = y;
-    this.color = color;
+
+    this.value = value;
     this.board = board;
     this.id = x + y;
   }
