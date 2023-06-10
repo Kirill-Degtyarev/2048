@@ -5,9 +5,10 @@ import styles from './CellComponent.module.scss';
 
 interface CellComponentProps {
   cell: Cell;
+  updateBoard: () => void;
 }
 
-const CellComponent: React.FC<CellComponentProps> = ({ cell }) => {
+const CellComponent: React.FC<CellComponentProps> = ({ cell, updateBoard }) => {
   return (
     <div className={styles.cell}>
       {!!cell.value && (

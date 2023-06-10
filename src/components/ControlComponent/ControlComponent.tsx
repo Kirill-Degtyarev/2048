@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Board } from '../../model/Board';
+import useKey from '../../hooks/useKey';
 
 interface ControlComponentProps {
   board: Board;
@@ -21,14 +22,18 @@ const ControlComponent: React.FC<ControlComponentProps> = ({
     restartGame();
   };
 
-  const back = () => {};
+  const back = () => {
+    console.log('ff');
+  };
 
   return (
     <>
-      <div style={{ marginBottom: 50 }} onClick={start}>
+      <div style={{ marginBottom: 50, cursor: 'pointer' }} onClick={start}>
         start
       </div>
-      <div onClick={restart}>restart</div>
+      <div style={{ cursor: 'pointer' }} onClick={restart}>
+        restart
+      </div>
     </>
   );
 };
