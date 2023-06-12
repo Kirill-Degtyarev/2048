@@ -1,0 +1,43 @@
+:root {
+  --color-silver-pink: #bbada0;
+  --color-pale-silver: #ccc0b3;
+  --color-white-chocolate: #eee3da;
+  --color-pearl: #ede0c8;
+  --color-middle-yellow-red: #f2b179;
+  --color-atomic-tangerine: #f59563;
+  --color-bittersweet: #f67c5f;
+  --color-orange-soda: #f65e3b;
+  --color-arylide-yellow: #edcf72;
+  --color-confetti: #edcc61;
+  --color-maize: #edc850;
+  --color-crayola: #edc53f;
+  --color-golden-dream: #edc22e;
+  --color-dark-gunmetal: #0f2231;
+
+  /****************************/
+  /*        typography        */
+  /****************************/
+
+  /****************************/
+  /*           board          */
+  /****************************/
+  --palette-board-background: var(--color-silver-pink);
+  --palette-board-border: var(--color-silver-pink);
+
+  /****************************/
+  /*           cell           */
+  /****************************/
+  --palette-cell-background-default: var(--color-pale-silver);
+  --palette-cell-background-v2: var(--color-white-chocolate);
+  --palette-cell-background-v4: var(--color-pearl);
+  --palette-cell-background-v8: var(--color-middle-yellow-red);
+  --palette-cell-background-v16: var(--color-atomic-tangerine);
+  --palette-cell-background-v32: var(--color-bittersweet);
+  --palette-cell-background-v64: var(--color-orange-soda);
+  --palette-cell-background-v128: var(--color-arylide-yellow);
+  --palette-cell-background-v256: var(--color-confetti);
+  --palette-cell-background-v512: var(--color-maize);
+  --palette-cell-background-v1024: var(--color-crayola);
+  --palette-cell-background-v2048: var(--color-golden-dream);
+  --palette-cell-background-v4096_v131072: var(--color-dark-gunmetal);
+}

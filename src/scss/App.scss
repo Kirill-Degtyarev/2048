@@ -1,0 +1,16 @@
+@import url('./_fonts.scss');
+@import url('./_normalize.scss');
+@import url('./_variables.scss');
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

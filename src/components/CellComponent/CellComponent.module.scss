@@ -1,0 +1,70 @@
+.cell {
+  background-color: var(--palette-cell-background-default);
+  border-radius: 10px;
+}
+
+.cell-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  font-size: 36px;
+  font-weight: 800;
+  transition: 0.3s ease all;
+
+  &_v2 {
+    background-color: var(--palette-cell-background-v2);
+  }
+
+  &_v4 {
+    background-color: var(--palette-cell-background-v4);
+  }
+
+  &_v8 {
+    background-color: var(--palette-cell-background-v8);
+  }
+
+  &_v16 {
+    background-color: var(--palette-cell-background-v16);
+  }
+
+  &_v32 {
+    background-color: var(--palette-cell-background-v32);
+  }
+
+  &_v64 {
+    background-color: var(--palette-cell-background-v64);
+  }
+
+  &_v128 {
+    background-color: var(--palette-cell-background-v128);
+  }
+
+  &_v256 {
+    background-color: var(--palette-cell-background-v256);
+  }
+
+  &_v512 {
+    background-color: var(--palette-cell-background-v512);
+  }
+
+  &_v1024 {
+    background-color: var(--palette-cell-background-v1024);
+  }
+
+  &_v2048 {
+    background-color: var(--palette-cell-background-v2048);
+  }
+
+  &_v4096,
+  &_v8192,
+  &_v16384,
+  &_v32768,
+  &_v65536,
+  &_v131072 {
+    background-color: var(--palette-cell-background-v4096_v131072);
+  }
+}
