@@ -36,10 +36,12 @@ export class Board {
    * Отвечает за старт игры, чтобы на доске появлось 2 рандомных числа
    */
   public initStartPosition() {
-    if (!this.isStartGame && this.isFirstStep) {
-      this.newNumber();
-      this.newNumber();
-    }
+    // if (!this.isStartGame && this.isFirstStep) {
+    //   this.newNumber();
+    //   this.newNumber();
+    // }
+    this.getCell(0, 1).value = 4;
+    this.getCell(3, 3).value = 2;
   }
 
   /**
@@ -73,4 +75,6 @@ export class Board {
   public getCell(x: number, y: number) {
     return this.cells[y][x];
   }
+
+  public canMove() {}
 }

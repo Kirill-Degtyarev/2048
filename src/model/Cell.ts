@@ -23,6 +23,7 @@ export class Cell {
       if (nextCell.value === 0) {
         nextCell.setValue(nextCell, this.value);
         this.setValue(this, 0);
+        nextCell.moveHorizontal(true);
       }
 
       if (nextCell.value === this.value) {
@@ -35,6 +36,7 @@ export class Cell {
       if (nextCell.value === 0) {
         nextCell.setValue(nextCell, this.value);
         this.setValue(this, 0);
+        nextCell.moveHorizontal(false);
       }
 
       if (nextCell.value === this.value) {
@@ -51,6 +53,7 @@ export class Cell {
       if (nextCell.value === 0) {
         nextCell.setValue(nextCell, this.value);
         this.setValue(this, 0);
+        nextCell.moveVertical(true);
       }
 
       if (nextCell.value === this.value) {
@@ -63,6 +66,7 @@ export class Cell {
       if (nextCell.value === 0) {
         nextCell.setValue(nextCell, this.value);
         this.setValue(this, 0);
+        nextCell.moveVertical(false);
       }
 
       if (nextCell.value === this.value) {
@@ -74,5 +78,49 @@ export class Cell {
 
   public setValue(targetCell: Cell, value: number) {
     targetCell.value = value;
+  }
+
+  public canMoveCell(direction: string) {
+    let nextCell: Cell;
+    if (this.value === 0) return false;
+
+    switch (direction) {
+      case 'right':
+        nextCell = this.board.getCell(this.x + 1, this.y);
+
+        if (this.x === 3) return false;
+        if (nextCell.value === 0) return true;
+        if (nextCell.value !== this.value) return false;
+
+        break;
+      case 'left':
+        nextCell = this.board.getCell(this.x - 1, this.y);
+
+        if (this.x === 0) return false;
+        if (nextCell.value === 0) return true;
+        if (nextCell.value !== this.value) return false;
+
+        break;
+      case 'top':
+        if (this.y === 0) return false;
+
+        nextCell = this.board.getCell(this.x, this.y - 1);
+
+        if (nextCell.value === 0) return true;
+        if (nextCell.value !== this.value) return false;
+
+        break;
+      case 'bottom':
+        if (this.y === 3) return false;
+
+        nextCell = this.board.getCell(this.x, this.y + 1);
+
+        if (nextCell.value === 0) return true;
+        if (nextCell.value !== this.value) return false;
+
+        break;
+    }
+
+    return true;
   }
 }

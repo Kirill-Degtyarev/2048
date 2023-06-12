@@ -11,7 +11,6 @@ import './scss/App.scss';
 import ControlComponent from './components/ControlComponent/ControlComponent';
 
 const App: React.FC = () => {
-  const [isMove, setIsMove] = useState<boolean>();
   const [board, setBoard] = useState<Board | null>(new Board());
 
   const initNewGames = useCallback(() => {
@@ -22,7 +21,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     initNewGames();
-    setIsMove(false);
   }, [initNewGames]);
 
   const updateBoard = () => {
@@ -39,85 +37,100 @@ const App: React.FC = () => {
   };
 
   const moveTop = () => {
-    console.log('moveTop');
-    for (let y = 0; y < 4; y++) {
-      for (let x = 0; x < 4; x++) {
-        const cell: Cell | undefined = board?.getCell(x, y);
+    let isMove: boolean = false;
 
-        if (cell?.value !== 0) {
-          if (cell?.y !== 0) {
-            cell?.moveVertical(true);
-            setIsMove(true);
+    console.log('moveTop');
+    if (board?.isStartGame) {
+      for (let y = 0; y < 4; y++) {
+        for (let x = 0; x < 4; x++) {
+          const cell: Cell = board.getCell(x, y);
+
+          if (cell.canMoveCell('top')) {
+            cell.moveVertical(true);
+            isMove = true;
           }
         }
       }
     }
 
-    createNewNumber();
+    if (isMove) {
+      board?.newNumber();
+      updateBoard();
+      isMove = false;
+    }
   };
 
   const moveBottom = () => {
+    let isMove: boolean = false;
+
     console.log('moveBottom');
-    for (let y = 0; y < 4; y++) {
-      for (let x = 0; x < 4; x++) {
-        const cell: Cell | undefined = board?.getCell(x, y);
+    if (board?.isStartGame) {
+      for (let y = 3; y >= 0; y--) {
+        for (let x = 3; x >= 0; x--) {
+          const cell: Cell = board.getCell(x, y);
 
-        if (cell?.value !== 0) {
-          if (cell?.y !== 3) {
-            cell?.moveVertical(false);
-            setIsMove(true);
+          if (cell.canMoveCell('bottom')) {
+            cell.moveVertical(false);
+            isMove = true;
           }
         }
       }
     }
 
-    createNewNumber();
-  };
-
-  const moveRight = () => {
-    console.log('moveRight');
-    for (let y = 0; y < 4; y++) {
-      for (let x = 0; x < 4; x++) {
-        const cell: Cell | undefined = board?.getCell(x, y);
-
-        if (cell?.value !== 0) {
-          if (cell?.x !== 3) {
-            cell?.moveHorizontal(true);
-            setIsMove(true);
-          }
-        }
-      }
+    if (isMove) {
+      board?.newNumber();
+      updateBoard();
+      isMove = false;
     }
-
-    createNewNumber();
   };
 
   const moveLeft = () => {
-    console.log('moveLeft');
-    for (let y = 0; y < 4; y++) {
-      for (let x = 0; x < 4; x++) {
-        const cell: Cell | undefined = board?.getCell(x, y);
+    let isMove: boolean = false;
 
-        if (cell?.value !== 0) {
-          if (cell?.x !== 0) {
-            cell?.moveHorizontal(false);
-            setIsMove(true);
-            console.log(isMove);
+    console.log('moveLeft');
+    if (board?.isStartGame) {
+      for (let y = 0; y < 4; y++) {
+        for (let x = 0; x < 4; x++) {
+          const cell: Cell = board.getCell(x, y);
+
+          if (cell.canMoveCell('left')) {
+            cell.moveHorizontal(false);
+            isMove = true;
           }
         }
       }
     }
 
-    createNewNumber();
+    if (isMove) {
+      board?.newNumber();
+      updateBoard();
+      isMove = false;
+    }
   };
 
-  const createNewNumber = () => {
-    if (isMove) {
-      console.log('ss');
+  const moveRight = () => {
+    let isMove: boolean = false;
 
+    console.log('moveRight');
+    if (board?.isStartGame) {
+      for (let y = 3; y >= 0; y--) {
+        for (let x = 3; x >= 0; x--) {
+          const cell: Cell = board.getCell(x, y);
+
+          if (cell.canMoveCell('right')) {
+            console.log(cell.canMoveCell('right'));
+
+            cell.moveHorizontal(true);
+            isMove = true;
+          }
+        }
+      }
+    }
+
+    if (isMove) {
       board?.newNumber();
-      setIsMove(false);
       updateBoard();
+      isMove = false;
     }
   };
 
